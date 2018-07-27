@@ -3,8 +3,8 @@ import numpy as np
 
 #t = np.linspace(0, 1, 100)
 
-cpx = [0.0, 100, 0.0, 50]
-cpy = [0.0, 0.0, 100, 50]
+cpx = [0.0, 100, 0.0, 100]
+cpy = [0.0, 0.0, 100,  50]
 x   = []
 y   = []
 
@@ -28,7 +28,7 @@ def y3(t):
     y = cpy[0] * (1-t)**3  +  3 * cpy[1] * t * (1-t)**2  +  3 * cpy[2] * (1-t) * t**2  +  cpy[3] * t**3
     return y
 
-for t in range(0, 100):
+for t  in np.linspace(0, 1, 100):
     xarray = x3(t)
     x.append(xarray)
     yarray = y3(t)
@@ -37,12 +37,14 @@ for t in range(0, 100):
 fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.plot(x, y)
+ax.plot(cpx, cpy, 'r--')
+ax.plot(cpx, cpy, 'ro')
+
+plt.grid()
+#plt.xlim(0, 100)
+#plt.ylim(0, 100)
 
 plt.title('Bezier Curve')
+plt.draw()
 #plt.legend()
 plt.show()
-
-''' what you would do was have 4 variables for each coefficient in the cubic polynomial
-    and then you would set them based on the formal shown
-    and then you would interate through all of your t range get the x and y for your curve
-    store those in an array and then display those arrays in matplot '''

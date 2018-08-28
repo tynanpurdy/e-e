@@ -1,1 +1,8 @@
-\contentsline {section}{\numberline {1}Introduction}{}
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}B\'ezier Curves}{6}
+\contentsline {subsection}{\numberline {2.1}Where did B\'ezier Curves come from?}{6}
+\contentsline {subsection}{\numberline {2.2}What are B\'ezier Curves?}{10}
+\contentsline {section}{\numberline {3}Applications}{16}
+\contentsline {subsection}{\numberline {3.1}Computer-Aided Design}{16}
+\contentsline {subsection}{\numberline {3.2}Fonts}{17}
+\contentsline {subsection}{\numberline {3.3}Vectors}{19}

@@ -75,6 +75,6 @@ ax.text( cpx[2]+0.1, cpy[2]+.01, 'P2')
 ax.text( cpx[3]-0.1, cpy[3]+0.2, 'P3')
 
 ax.set_aspect("equal")
-plt.title('Bézier Curve')
+plt.title('Bezier Curve')
 plt.draw()
 plt.show()

@@ -1,9 +1,0 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Fluid passing around a cornered object. Fluid must be redirected harshly to get around the square object, creating excess friction and heat.}}{7}
-\contentsline {figure}{\numberline {2}{\ignorespaces Fluid passing over a curved object. The fluid is redirected less to pass around the object, resulting in less friction and heat than the square object.}}{7}
-\contentsline {figure}{\numberline {3}{\ignorespaces B\'ezier curve with 4 control points.}}{10}
-\contentsline {figure}{\numberline {4}{\ignorespaces Demonstration of how control points influence the curve. The closer the control points are to forming a line, the less curvature.}}{11}
-\contentsline {figure}{\numberline {5}{\ignorespaces Linear B\'ezier curve.}}{12}
-\contentsline {figure}{\numberline {6}{\ignorespaces B\'ezier curve with 3 control points, resulting from a 2nd order Bernstein polynomial.}}{15}
-\contentsline {figure}{\numberline {7}{\ignorespaces Cubic B\'ezier curve with 4 control points, generated with a 3rd order Bernstein polynomial.}}{16}
-\contentsline {figure}{\numberline {8}{\ignorespaces Letter 'e' with visible B\'ezier control points}}{17}
-\contentsline {figure}{\numberline {9}{\ignorespaces Example curve with control points visible, drawn the pen tool in Adobe Illustrator.}}{20}

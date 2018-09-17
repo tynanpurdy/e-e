@@ -18,9 +18,9 @@ def y(t):
     return y
 
 for t  in np.linspace(0, 1, 100):
-    xarray = x(t)      # match with chosen functions from above
+    xarray = x(t)
     x.append(xarray)
-    yarray = y(t)      # match with chosen functions from above
+    yarray = y(t)     
     y.append(yarray)
 
 fig = plt.figure()
@@ -32,7 +32,7 @@ plt.grid()
 plt.xlim(0, 10)
 plt.ylim(0, 10)
 
-# label control points. comment out lines referencing cps that aren't being used
+# label control points
 ax.text( cpx[0]+0.1, cpy[0]+0.1, 'P0')
 ax.text( cpx[1]-0.1, cpy[1]+0.2, 'P1')
 

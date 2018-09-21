@@ -13,6 +13,7 @@
 \usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage{natbib}
+\usepackage{subcaption}
 
 
 \geometry{letterpaper, portrait, margin=1in}
@@ -55,19 +56,19 @@
 \parindent=0.5in
 {\fontsize{12}{14.4}
 	{\singlespace
-	\pagenumbering{gobble}
-	\maketitle
-	\begin{center}
-	\vspace{4mm}
-	002129-0004 \\
-	\vspace{4mm}
-	Extended Essay \\
-	\vspace{4mm}
-	Mathematics \\
-	\vspace{4mm}
-	May 2019 \\
-	\vspace{4mm}
-	Words: \\
+	    \pagenumbering{gobble}
+	    \maketitle
+	    \begin{center}
+	    \vspace{4mm}
+	    002129-0004 \\
+	    \vspace{4mm}
+	    Extended Essay \\
+	    \vspace{4mm}
+	    Mathematics \\
+	    \vspace{4mm}
+	    May 2019 \\
+	    \vspace{4mm}
+	    Words: \\
 	\end{center}
 	}
 }	
@@ -96,89 +97,130 @@ Bézier curves, a mathematical process for drawing curves, has found its way int
 
 \section{B\'ezier Curves}
 
-\subsection{Where did B\'ezier Curves come from?}
+\subsection{Origin}
 While the mathematics behind Bézier curves has existed for decades before computers were invented, it was the French automotive engineer, Pierre Bézier (1910-1999), who popularized the method for digital curve and surface drawing. B\'ezier was a mathematician and head of design at Renault, a Paris based automaker. (Farin, Hoschek and Kim) Before the origin of these special curves is revealed, it must be understood why curves are important and so difficult to procure digitally.
 
-Curves have been used in mechanical design for hundreds of years, and for good reason. They give a smooth, attractive form that is not only more inviting to the touch, but also lends itself toward aerodynamics. Curves are perfect for effortlessly passing through fluids such as air and water.
+Curves have been used in mechanical design for hundreds of years, and for good reason. They give a smooth, attractive form that is not only more inviting to the touch, but also lends itself toward aerodynamics. Curves are perfect for effortlessly passing through fluids such as air and water, as demonstrated in Figure \ref{fig:fluid}.
 
-\begin{figure}[H]
-\includegraphics[width=12cm]{aero-square}
-\centering
-\caption{Fluid passing around a cornered object. Fluid must be redirected harshly to get around the square object, creating excess friction and heat.}
+\begin{figure}[t]
+    \begin{center}
+    \caption{Fluid is redirected harshly around a cornered object relative to a rounded object.}
+    \label{fig:fluid}
+    \begin{subfigure}[b]{.4\linewidth}
+        \includegraphics[width=\linewidth]{aero-square}
+        \caption{Cornered object}
+    \end{subfigure}
+    \begin{subfigure}[b]{.4\linewidth}
+        \includegraphics[width=\linewidth]{aero-curve}
+        \caption{Rounded object}
+    \end{subfigure}
+\end{center}
 \end{figure}
 
-\begin{figure}[H]
-\includegraphics[width=12cm]{aero-curve}
-\centering
-\caption{Fluid passing over a curved object. The fluid is redirected less to pass around the object, resulting in less friction and heat than the square object.}
-\end{figure}
-
+\newpage
 Unsurprisingly, aerodynamics in air and water accounts for the primary uses of curved surfaces both in ancient Rome and today: boats, planes, and cars. Consider the cars seen on the road today. Even an astute observer would have a hard time finding a perfectly flat surface or hard corner anywhere on the vehicle. Geometric patterns are so popular in the 2010s, yet they haven’t made their way to cars, simply because curves are so energy efficient compared to straight lines and corners that there is no compelling reason to abandon them. 
 
 Curves are also much safer than square edges and corners. Even objects that appear to have square corners often have a small filet to smooth them out and avoid potential accidental cuts or scratches. Curves’ safety properties arise from the same traits as its aerodynamic properties. An angled edge is more able to split open a solid that a curved edge, the reason knives must be sharp to function properly. The concern of safety against hard edges is addressed extensively in the manufacturing space. A wide variety of tools exist purely to reduce sharp edges to a smooth and save curve. Most subtractive machining tools leave a straight edge after a linear cut, as well as small bits of debris still attached to the edge called burrs. Belt sanders, files, deburring tools, countersink bits, and sanding blocks are all different tools used to round or smooth edges after a cut and remove burrs.
 
 When considering a user of an object or product, curves are an easy way to make the user feel at ease and comfortable with the product, as well as keep them safe. 
 
-Curved edges and surfaces clearly have their benefits. As shown above, there are ways to add curves to a cornered object, but it would be better to include curves in the original design. With manually operated tools, creating a curve is not particularly difficult. The human brain can describe and instruct the hands to use tools to make any shape or surface imaginable that the tool is capable of creating. Handcrafted wood objects can be curved with a chisel and some sanding. In the car manufacturing industry, most auto bodies are modeled at full scale in clay during the design phase. Handcrafting is fine for many purposes, but when the end goal of a design is to mass produce it, at some point the shape of the object must be described by a computer. Manually operated tools are time consuming and labor intensive to make thousands of identical parts for mass production, which is not feasible for large scale manufacturing. Computer numerical control (CNC) tools have solved the mass production issue by allowing tools to be programmed to execute precise cuts perfectly and repeatably. CNC tools require far less attention from a human operator and produce consistent machining, perfect for mass production. The catch is, since the machine is computer controlled, the computer must be able to describe the cuts it is supposed to make, which means they must be described mathematically. Pierre B\'ezier was one of the first engineers to address the need for digital rendering of physical parts, and so began development of the B\'ezier curve for Renault. B\'ezier was not the first, nor the only engineer to work on a mathematical curve algorithm for computers, but his was the widely adopted method. The famous de Casteljau’s algorithm was developed for Citroën, a competing auto company in Paris. His algorithm was kept secret for years after its development in the ‘60s. (Farin, Hoschek and Kim)
+Curved edges and surfaces clearly have their benefits. As shown above, there are ways to add curves to a cornered object, but it would be better to include curves in the original design. With manually operated tools, creating a curve is not particularly difficult. The human brain can describe and instruct the hands to use tools to make any shape or surface imaginable that the tool is capable of creating. Handcrafted wood objects can be curved with a chisel and some sanding. In the car manufacturing industry, most auto bodies are modeled at full scale in clay during the design phase. Handcrafting is fine for many purposes, but when the end goal of a design is to mass produce it, at some point the shape of the object must be described by a computer. Manually operated tools are time consuming and labor intensive to make thousands of identical parts for mass production, which is not feasible for large scale manufacturing. Computer numerical control (CNC) tools have solved the mass production issue by allowing tools to be programmed to execute precise cuts perfectly and repeatably. CNC tools require far less attention from a human operator and produce consistent machining, perfect for mass production. The catch is, since the machine is computer controlled, the computer must be able to describe the cuts it is supposed to make, which means they must be described mathematically. Pierre B\'ezier was one of the first engineers to address the need for digital rendering of physical parts, and so began development of the B\'ezier curve for Renault. B\'ezier was not the first, nor the only engineer to work on a mathematical curve algorithm for computers, but his was the widely adopted method. The famous de Casteljau’s algorithm was developed for Citroën, a competing auto company in Paris. His algorithm was kept secret for years after its development in the ‘60s. \citep{handbook}
+
+\subsection{Bernstein Polynomials}
+Bernstein polynomials are the expression that represent B\'ezier curves digitally. Before understanding B\'ezier curves mathematically, Bernstein polynomials must be defined. Linear polynomial terms are defined by equation \ref{bern}. 
+
+\begin{equation}
+    \label{bern}
+    B_{i,n}(t) = \frac{n!}{i!(n-i)!}(1-t)^{n-i}t^i
+    i=0,...,n
+\end{equation}
 
 
-\subsection{What are B\'ezier Curves?}
-Put simply, a B\'ezier curve is a curve defined by a set of control points. These control points are not necessarily intersected by the curve but they determine its shape.
+Coefficients for each of the linear terms are given by the following equation. 
+
+\begin{equation}
+    \label{berncoeff}
+    \binom{n}{i} = \displaystyle\prod_{i=1}^{n} \frac{n+1-i}{i}
+\end{equation}
+
+\subsection{Mathematical Representation}
+A B\'ezier curve is a summation of Bernstein polynomials, each with coefficients corresponding to the coordinates of control points. These control points are not necessarily intersected by the curve but they do determine its shape.
+
 \begin{figure}[H]
-\includegraphics[width=15cm]{Figure_1}
-\centering
-\caption{B\'ezier curve with 4 control points.}
+    \includegraphics[width=15cm]{Figure_1}
+    \centering
+    \caption{B\'ezier curve with 4 control points.}
+    \label{fig:demo}
 \end{figure}
-Consider Figure 4, a curve with four control points: $P_0, P_1, P_2,$ and $P_3$. $P_0$ and $P_3$ are the endpoints of the curve, so they will be intersected by the curve. $P_1$ and $P_2$ will not be intersected by the curve. They do ‘pull’ the curve in their direction. Placing $P_1$ closer to a line between $P_0$ and $P_3$ will reduce the bend towards $P_1$.
+
+Consider Figure \ref{fig:demo}, a curve with four control points: $P_0, P_1, P_2,$ and $P_3$. $P_0$ and $P_3$ are the endpoints of the curve, so they will be intersected by the curve. $P_1$ and $P_2$ will not be intersected by the curve. They do ‘pull’ the curve in their direction. Placing $P_1$ closer to a line between $P_0$ and $P_3$ will reduce the bend towards $P_1$.
+
 \begin{figure}[H]
-\includegraphics[width=15cm]{Figure_2}
-\centering
-\caption{Demonstration of how control points influence the curve. The closer the control points are to forming a line, the less curvature.}
+    \includegraphics[width=15cm]{Figure_2}
+    \centering
+    \caption{Demonstration of how control points influence the curve. The closer the control points are to forming a line, the less curvature.}
 \end{figure}
+
 The behavior of the curve in relation to its control points comes from the properties of the equation that defines the curve. B\'ezier curves are defined by a parametric equation of Bernstein polynomials. A parametric equation uses a parameter as a determining factor of the result of the function. While traditional graphed functions use an x coordinate to solve for a y coordinate, the parameter is used to define x and y individually. 
-Take Equation 1 below. The parametric equation uses the parameter t and two control points, $P_0$ and $P_1$. The equation is solved given t from 0 to 1. At $t=0$, the result is equal to $P_0$, and at $t=1$ it is equal to $P_1$.
-$$B(t) = P_0 + t(P_1 - P_0)$$
-In order to graph Equation 1 as a linear B\'ezier curve (don’t mind the paradox, it works the same way), two control points must be designated, for instance $P_0$(1, 1) and $P_1$(2, 3). Then, the coordinates will be substituted into the parametric equation for x and y.
+Take Equation \ref{eq:para1} below. The parametric equation uses the parameter t and two control points, $P_0$ and $P_1$. The equation is solved given t from 0 to 1. At $t=0$, the result is equal to $P_0$, and at $t=1$ it is equal to $P_1$.
+
+\begin{equation}
+    \label{eq:para1}
+    B(t) = P_0 + t(P_1 - P_0)
+\end{equation}
+
+In order to graph Equation \ref{eq:para1} as a linear B\'ezier curve (don’t mind the paradox, it works the same way), two control points must be designated, for instance $P_0$(1, 1) and $P_1$(2, 3). Then, the coordinates will be substituted into the parametric equation for x and y.
+
 $$x(t) = 1 + t(2-1)$$
 $$y(t) = 1 + t(3-1)$$
-Evaluating $x(t)$ and $y(t)$ from 0 to 1 produces coordinate points on the ‘curve’ shown below. 
-\begin{figure}[H]
-\includegraphics[width=15cm]{Figure_3}
-\centering
-\caption{Linear B\'ezier curve.}
-\end{figure}
-As t increases from 0 to 1, the coordinates produced become further from $P_0$ and closer to $P_1$ because $P_0$ is getting subtracted away and $P_1$ is being added at equal rates. 
 
-Drawing a simple line with a parametric equation isn’t particularly impressive. However, when the equation is rearranged to be a Bernstein polynomial, the formula can easily be adapted to accommodate more dimensions. Equation 1 is a 1st order Bernstein polynomial with the control points as coefficients if rearranged like below.
-$$B(t) = (1-t)P_0 + t P_1$$
-Each term in the Bernstein polynomial is matched sequentially with a control point as a coefficient to create formulas for higher order polynomials (See Table 1).
+Evaluating $x(t)$ and $y(t)$ from 0 to 1 produces coordinate points on the "curve" shown in Figure \ref{fig:fig:bez2}. 
+
+\begin{figure}[H]
+    \includegraphics[width=15cm]{Figure_3}
+    \centering
+    \caption{Linear B\'ezier curve.}
+    \label{fig:bez2}
+\end{figure}
+
+As $t$ increases from 0 to 1, the coordinates produced become further from $P_0$ and closer to $P_1$ because $P_0$ is getting subtracted away and $P_1$ is being added at equal rates. 
+
+Drawing a simple line with a parametric equation isn’t particularly impressive. However, when the equation is rearranged to be a Bernstein polynomial, the formula can easily be adapted to accommodate more dimensions. Equation \ref{eq:bern1} is a 1st order Bernstein polynomial with the control points as coefficients if rearranged like below.
+
+\begin{equation}
+    \label{eq:bern1}
+    B(t) = (1-t)P_0 + t P_1
+\end{equation}
+
+Each term in the Bernstein polynomial is matched sequentially with a control point as a coefficient to create formulas for higher order polynomials (See Table \ref{tab:coeffs}).
 
 \begin{table}[H]
-\centering
-\begin{tabular}{ | c | c c | c | }
-\hline
-$B_{n,m} (t)$ & Bernstein Term & CP Coefficient & Complete Term \\
-\hline
-$B_{1,0}$ & $1-t$ 		& $P_0$ & $(1-t)P_0$ 	\\
-\hline
-$B_{1,1}$ & $t$ 		& $P_1$ & $tP_1$ 		\\
-\hline
-$B_{2,0}$ & $(1-t)^2$ 	& $P_0$ & $(1-t)^2P_0$ 	\\
-\hline
-$B_{2,1}$ & $2(1-t)t$ 	& $P_1$ & $2(1-t)tP_1$ 	\\
-\hline
-$B_{2,2}$ & $t^2$ 		& $P_2$ & $t^2P_2$ 	\\
-\hline
-$B_{3,0}$ & $(1-t)^3$ 	& $P_0$ & $(1-t)^3P_0$ 	\\
-\hline
-$B_{3,1}$ & $3(1-t)^2t$ 	& $P_1$ & $3(1-t)^2P_1$ 	\\
-\hline
-$B_{3,2}$ & $3(1-t)t^2$ 	& $P_2$ & $3(1-t)t^2P_2$\\
-\hline
-$B_{3,3}$ & $t^3$ 		& $P_3$ & $t^3P_3$ 	\\
-\hline
-\end{tabular}
-\caption{Bernstein polynomial, order 1 to 3, terms and corresponding B\'ezier control point coefficients. $n =$ order. $m =$ term.}
+    \centering
+    \begin{tabular}{ | c | c c | c | }
+        \hline
+        $B_{n,m} (t)$ & Bernstein Term & CP Coefficient & Complete Term \\
+        \hline
+        $B_{1,0}$ & $1-t$ 		& $P_0$ & $(1-t)P_0$ 	    \\
+        \hline
+        $B_{1,1}$ & $t$ 		& $P_1$ & $tP_1$ 		    \\
+        \hline
+        $B_{2,0}$ & $(1-t)^2$ 	& $P_0$ & $(1-t)^2P_0$ 	    \\
+        \hline
+        $B_{2,1}$ & $2(1-t)t$ 	& $P_1$ & $2(1-t)tP_1$ 	    \\
+        \hline
+        $B_{2,2}$ & $t^2$ 		& $P_2$ & $t^2P_2$ 	        \\
+        \hline
+        $B_{3,0}$ & $(1-t)^3$ 	& $P_0$ & $(1-t)^3P_0$ 	    \\
+        \hline
+        $B_{3,1}$ & $3(1-t)^2t$ 	& $P_1$ & $3(1-t)^2P_1$	\\
+        \hline
+        $B_{3,2}$ & $3(1-t)t^2$ 	& $P_2$ & $3(1-t)t^2P_2$\\
+        \hline
+        $B_{3,3}$ & $t^3$ 		& $P_3$ & $t^3P_3$ 	        \\
+        \hline
+    \end{tabular}
+    \caption{Bernstein polynomial, order 1 to 3, terms and corresponding B\'ezier control point coefficients. $n =$ order. $m =$ term.}
+    \label{tab:coeffs}
 \end{table}
 
 For instance, below is a 2nd order Bernstein polynomial, which uses 3 control points.
@@ -186,20 +228,25 @@ $$B(t)= (1-t)^2 P_0+2t(1-t) P_1+t^2 P_2$$
 With 3 control points, the resulting graph forms a curve.
 
 \begin{figure}[H]
-\includegraphics[width=15cm]{Figure_4}
-\centering
-\caption{B\'ezier curve with 3 control points, resulting from a 2nd order Bernstein polynomial.}
+    \includegraphics[width=15cm]{Figure_4}
+    \centering
+    \caption{B\'ezier curve with 3 control points, resulting from a 2nd order Bernstein polynomial.}
+    \label{fig:bez3}
 \end{figure}
-One byproduct of how the curve is formed is that the curve always lies completely within the area bounded by the control points. The curve in Figure 7 lies completely within the triangle formed by $P_0$, $P_1$, and $P_2$.
+
+One byproduct of how the curve is formed is that the curve always lies completely within the area bounded by the control points. The curve in Figure \ref{fig:bez3} lies completely within the triangle formed by $P_0$, $P_1$, and $P_2$.
 
 2nd order Bernstein polynomial B\'ezier curves are referred to as quadratic Bezier curves. Another common form is the cubic B\'ezier curve, which uses a 3rd order Bernstein polynomial.
+
 $$B(t)=(1-t)^3 P_0+3t (1-t)^2 P_1+3t^2 (1-t) P_2+t^3 P_3$$
+
 As can be expected, a 3rd order polynomial has 4 terms and 4 control points.
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=15cm]{Figure_5}
-\caption{Cubic B\'ezier curve with 4 control points, generated with a 3rd order Bernstein polynomial.}
+    \centering
+    \includegraphics[width=15cm]{Figure_5}
+    \caption{Cubic B\'ezier curve with 4 control points, generated with a 3rd order Bernstein polynomial.}
+    \label{fig:bez4}
 \end{figure}
 
 \section{Applications}
@@ -210,7 +257,7 @@ Computer-Aided Design (CAD) was the original intended application for the B\'ezi
 
 %talk about NURBS and their relation with Bezier and Casteljau
 
-NURBS are the standard method for representing 3D objects and surfaces in CAD applications, including SolidWorks, Autodesk Fusion, and Autodesk Inventor. 
+NURBS is the standard method for representing 3D objects and surfaces in CAD applications, including SolidWorks, Autodesk Fusion, and Autodesk Inventor. 
 %more
 
 \subsection{Fonts}
@@ -218,14 +265,14 @@ NURBS are the standard method for representing 3D objects and surfaces in CAD ap
 Until laser printers had a high enough dot density to produce legible text, digital fonts were essentially unnecessary and nonexistent. As printer technology developed, a digital typeface became a more and more likely end. B\'ezier curves ultimately answered the question of how to produce a digital text character with its easy to use and efficient to encode curves.
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=10cm]{char}
-\caption{Letter 'e' with visible B\'ezier control points}
+    \centering
+    \includegraphics[width=10cm]{char}
+    \caption{Letter 'e' with visible B\'ezier control points}
 \end{figure}
 
 B\'ezier curves are suited well for fonts not only because computers can handle them well, but their adaptability and ease of adjustment lends toward the process of optical balancing. The design process of a font, even individual characters, requires very close attention to optical balance to make characters look and feel the way they are meant to be. Optimizing fonts is a topic for another discussion, so for now B\'ezier curves offer the flexibility needed to create quality fonts while also being efficient for computers to render. 
 
-Computational efficiency is incredibly important for font rendering simply because text is rendered so frequently. As can be seen in the python code in Figure 9, rendering a curve is a very simple task that only requires a few numerical arguments. As the primary method of displaying information in language form on a screen, text is rendered all the time. The efficiency of the B\'ezier curve allows text to not be a heavy burden on the CPU to produce. 
+Computational efficiency is incredibly important for font rendering simply because text is rendered so frequently. As can be seen in the python code in Figure 9, rendering a curve is a very simple task that only requires a few numerical arguments. As the primary method of displaying information in language form on a screen, text is rendered all the time. The efficiency of the B\'ezier curve allows text to not be a heavy burden on the CPU to render. 
 
 The prevalence of B\'ezier curves in fonts has to do with the main digital font formats which are industry standards: TrueType and PostScript. PostScript was designed by Adobe in the early ‘80s as their core technology. It is a programming language dedicated toward document rendering. Fonts, as well as vector graphics, were drawn as a series of lines and cubic B\'ezier curves. These documents could be scaled to any resolution, and therefore were compatible with virtually any laser printer. 
 
@@ -238,25 +285,34 @@ Both TrueType and PostScript replaced bitmap fonts entirely. Bitmap fonts were m
 
 \subsection{Vectors}
 
-PostScript’s use of cubic B\'ezier curves also made its way to the dominant vector graphic design software Adobe Illustrator. Illustrator relies heavily on cubic B\'ezier curves to draw most every shape. The system is based entirely around the control points of the curves. The endpoints of curves are referred to as control points, while the two points that lie off the curve are called handles. The control point-based control scheme has been adopted as the default method of interaction in vector drawing software, and can be found in Illustrator and other popular vector programs such as CorelDRAW.
+PostScript’s use of cubic B\'ezier curves also made its way to the dominant vector graphic design software, Adobe Illustrator. Illustrator relies heavily on cubic B\'ezier curves to draw most every shape. The system is based entirely around the control points of the curves. The endpoints of curves are referred to as control points, while the two points that lie off the curve are called handles. The control point-based control scheme has been adopted as the default method of interaction universally in vector drawing software, and can be found in Illustrator and other popular vector programs such as CorelDRAW and Inkskape. 
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{illustrator-ex}
-\caption{Example curve with control points visible, drawn the pen tool in Adobe Illustrator.}
+    \centering
+    \includegraphics[width=\textwidth]{illustrator-ex}
+    \caption{Example curve with control points visible, drawn the pen tool in Adobe Illustrator.}
 \end{figure}
 
-The Scalable Vector Graphics file format is the common vector file format which can be read by mainstream vector software packages. It is written in XML.
+Vector design programs are a necessary tool for the creation of any digital graphic (websites, magazines, logos, brochures, advertisements, etc.). 
+
+The Scalable Vector Graphics (SVG) file format is the common vector file format which can be read by mainstream vector software packages. It is written in eXtensible Markup Language (XML), a self-descriptive markup language meant to be legible for computers as well as humans. The SVG is an open standard format by the World Wide Web Consortium, used for graphics. SVGs are compatible with vector based graphic design programs, and can be integrated inline with HTML. They are perfect for web use because the files are small, simple text files, but have the benefits of being infinitely scalable via the properties of vectors, hence the name Scalable Vector Graphic. For web use, this is ideal, since there are a wide range of screen resolutions to render web content on, and keeping large raster images on a web server can quickly become slow and cumbersome for a client that is loading the site. Of course, for a standard, vector based file, B\'ezier curves are the perfect way to take care of curves, shapes and fonts rendered in SVG files.
+
+\section{Summary}
+The intuitive nature of B\'ezier curves makes them perfect for artists and designers, but also the computational efficiency of Bernstein polynomials reduces load on the GPU of any machine that is rendering vector graphics. The perfect match of user and system benefits has resulted in widespread industry adoption in vector rendering and vector file formats. In today's climate of popular geometric and vector graphic design, as well as the ongoing use of print and digital text, B\'ezier curve technology is integral infrastructure for artists, designers, and readers around the world. 
 
 \newpage
 \bibliography{tynan-ee}
 \bibliographystyle{apa}
-\appendix
+\newpage
+
+\section{Appendix}
 \listoffigures
 \listoftables
+\newpage
 \lstinputlisting[language=python, caption=1st Order B\'ezier Curve]{../py/1stbezier.py}
 \lstinputlisting[language=python, caption=2rd Order B\'ezier Curve]{../py/2ndbezier.py}
 \lstinputlisting[language=python, caption=3rd Order B\'ezier Curve]{../py/3rdbezier.py}
+
 \end{document}
 
 

@@ -2,16 +2,16 @@ from numpy import linspace as lin  # linespace
 from scipy.special import comb  # binomial coefficient
 import matplotlib.pyplot as plt  # plotting
 
-x = lin(0, 1, 100)  # Input as 100 floats between 0 and 1
-num: int = 10  # The degree
+x = lin(0, 1, 100)  # 100 sample inputs between 0 and 1
+num = 4  # degree 0 indexed
 
 # returns the value from the Bernstein basis function at the point x
-def bern(i: int, n: int, x: float) -> float:
+def bern(i, n, x):
     return comb(n, i) * x ** i * (1 - x) ** (n-i)
 
-# Iterates through all of the functions for the degree
+# iterates through all of the functions for the degree
 for c in range(num + 1):
-    # Plots all of the functions 
+    # plots all of the functions 
     plt.plot(x, [bern(c, num, i) for i in x])
 
 plt.title("Bernstein Basis Functions")  # Title

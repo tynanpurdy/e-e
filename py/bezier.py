@@ -2,11 +2,11 @@ from numpy import linspace as lin  # linespace
 from scipy.special import comb  # binomial coefficient
 import matplotlib.pyplot as plt  # plotting
 
-cpx = [0.0, 0.5, 2.0]
-cpy = [0.0, 3.0, 0.0]
+cpx = [0.0, 0.5, 2.0, 1.5] # control point x coordinates
+cpy = [0.0, 3.0, 0.0, 3.0] # control point y coordinates
 
-t = lin(0, 1, 100)  # Input as 100 floats between 0 and 1
-num = 2  # The degree 0 indexed
+t = lin(0, 1, 100)  # 100 sample inputs between 0 and 1
+num = 3  # degree 0 indexed
 
 # returns the value from the Bernstein basis function at the point x
 def bern(i, n, x):
@@ -19,10 +19,14 @@ def f(a, t):
         ret += a[i] * bern(i, num, t)
     return ret
 
-def x(t: float) -> float: return f(cpx, t) # implemented on X's control points
-def y(t: float) -> float: return f(cpy, t) # implemented on Y's control points
+def x(t): return f(cpx, t) # implemented on X's control points
+def y(t): return f(cpy, t) # implemented on Y's control points
 
-plt.plot([x(i) for i in t], [y(i) for i in t]) # plots X and Y
-plt.plot(cpx, cpy, 'ro') # plots the control points
-plt.plot(cpx, cpy, 'r:') # plots lines between control points
-plt.show()
+plt.plot([x(i) for i in t], [y(i) for i in t]) # plot bezier curve
+plt.plot(cpx, cpy, 'ro') # plot control points
+plt.plot(cpx, cpy, 'r:') # graph lines between control points
+for i in range(num+1):
+    # label control points
+    plt.text(cpx[i]+0.05, cpy[i]+0.05, 'P{}'.format(i))
+plt.title('Bezier') # title
+plt.show() # display graphs

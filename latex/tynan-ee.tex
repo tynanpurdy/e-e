@@ -62,13 +62,13 @@
 	    \vspace{4mm}
 	    002129-0004 \\
 	    \vspace{4mm}
-	    Extended Essay \\
+	    International Baccelaureate Extended Essay \\
 	    \vspace{4mm}
 	    Mathematics \\
 	    \vspace{4mm}
 	    May 2019 \\
 	    \vspace{4mm}
-	    Words: 3102 \\
+	    Words: 3169 \\
 	\end{center}
 	}
 }	
@@ -76,7 +76,7 @@
 \newpage
 \pagenumbering{arabic}
 \begin{abstract}
-Curves are everywhere. In architecture, in objects, in books. Consider how many of those curves existed at some point on a computer. Graphic designs, 3D models of products, paper documents, so much of our carpentered world is rendered on a computer before it ever sees the third dimension. Computer-Aided Design programs have taken over the manufacturing industry with versatile and extensive software packages that simulate any physical object right on the computer. Graphic design programs are at the source of every print and screen display. But these computer programs must be able to produce curved lines and surfaces in a computationally efficient way, or else producing all the curves used every day would bring computer hardware to its knees. A French automotive engineer by the name of Pierre B\'ezier implemented an efficient and easily adjustable method of digital curve rendering called the B\'ezier curve. His method of curve drawing has made its way into countless digital mediums, including 3D and 2D design software, digital typefaces, and more.
+Curves are everywhere; in architecture, in objects, in books. Consider how many of those curves existed at some point on a computer. Graphic designs, 3D models of products, paper documents, so much of our carpentered world is rendered on a computer before it ever sees the third dimension. Computer-Aided Design programs have taken over the manufacturing industry with versatile and extensive software packages that simulate any physical object right on the computer. Graphic design programs are at the source of every print and screen display. But these computer programs must be able to produce curved lines and surfaces in a computationally efficient way, or else producing all the curves used every day would bring computer hardware to its knees. A French automotive engineer by the name of Pierre B\'ezier implemented an efficient and easily adjustable method of digital curve rendering called the B\'ezier curve. His method of curve drawing has made its way into countless digital mediums, including 3D and 2D design software, digital typefaces, and more.
 \end{abstract}
 
 \newpage
@@ -84,25 +84,12 @@ Curves are everywhere. In architecture, in objects, in books. Consider how many 
 
 \newpage
 \section{Introduction}
-The Information Age has introduced some drastic changes to the way humans communicate and exchange information. Over the past several hundred years, the dissemination of information has benefited from inventions such as Gutenberg’s printing press and the digital computer have revolutionized the way we encode and decode information. Advances in communication lie at the heart of the development of civilization. Before the printing press made books and published works accessible to the world, books were available only to monks and scholars, who made up a very small part of the population. Books and papers were handwritten by scribes, a tedious process subject to human error. With most information behind closed doors, education, even literacy, was an uncommon skill. 
-
-Information technology (IT) has real effects. European cities that made use of the printing press in the 16th century grew 60\% faster than comparable cities that did not. \citep{press} Books, libraries, newspapers, all became publicly acquirable resources. When information is more accessible, more ideas can be shared and innovated on. Medical and hygienic practices and advancements can be mass produced for everyone to implement lifesaving habits. Informed populations carry more democratic power to have their own opinions based on personal research as opposed to listening to some omnipotent higher authority. Abundance of information and sharing of information leads directly to a wide myriad of benevolent consequences lending to a healthier society. 
-
-IT can take many forms, some rather unexpected, and each with their own tradeoffs. Scrolls, paper books, ink pens are all forms of IT. Scrolls were the most efficient method of storing information for centuries. Paper books, an improvement on the scroll, are able to hold many more pages per unit of volume than scrolls but can be difficult to manufacture without the right tools. The pen has gone through many innovations. The original feather and ink were a functional way to write, despite requiring frequent dips in the ink. The feather’s ability to hold ink was less than desirable, only able to write for a word or two between ink dips. Fountain pens held ink for far longer, allowing the user to be much more efficient with their writing. Innovations in IT allow for more storage and bandwidth for transferring information, as well as making content creation accessible to the public. Handwritten letters are an invaluable source for historians. 
-
-Modern information technology has grown to an enormously complicated and diverse field due to recent globally revolutionizing inventions: the digital computer and the internet. In the 21st century, IT encompasses computer networking, servers, online communication mediums like Twitter and Gmail, photos, videos, I/O ports, smartphones, and even file formats. Some areas of IT are so new and unique that world governments are still figuring out how to regulate it. Net Neutrality protections give internet users the right to communicate with whoever they chose on the internet without interference from Internet Service Providers. Net Neutrality hasn’t been particularly successful in recent years, but there are good regulations that are already in effect. In April of 2018, the European Union passed the General Data Protection Regulation (GDPR), which strictly defines what internet companies can do with user data and gives users specific rights to their data. Because the internet is so global, unlike communication mediums of the past, regulations like GDPR are treated as if they are worldwide rules, even though they are only enforced in Europe. Companies would rather have one universal policy for their users than have to deal with different policies for users in different countries. IT is a deep and difficult topic, with many branches of influence. However, there is a particular IT innovation that is used across the entire internet, and almost every form of communication today, the Bézier curve. 
-
 Bézier curves, a mathematical process for drawing curves, has found its way into the lifeblood of modern communication, digital graphics and text. Every screen in the world is almost constantly using Bézier curves to draw whatever it is displaying. Most technology users don’t know what Bézier curves are, despite looking at them every day for hours on end.  The lines of text on this very page were drawn using Bézier curves. The art on billboards were rendered with Bézier curves as they were printed. The ability to render text characters virtually instantly has contributed to the content boom of the internet. The following pages will describe what Bézier curves are, where they came from, and exactly how they are used to deliver words and shapes to the digital world.
 
-
-\section{B\'ezier Curves}
-
-\subsection{Origin}
-While the mathematics behind Bézier curves has existed for decades before computers were invented, it was the French automotive engineer, Pierre Bézier (1910-1999), who popularized the method for digital curve and surface drawing. B\'ezier was a mathematician and head of design at Renault, a Paris based automaker. (Farin, Hoschek and Kim) Before the origin of these special curves is revealed, it must be understood why curves are important and so difficult to procure digitally.
-
+The mathematics behind Bézier curves have existed for decades before computers were invented. It was the French automotive engineer, Pierre Bézier (1910-1999), who popularized the method for digital curve and surface drawing. B\'ezier was a mathematician and head of design at Renault, a Paris based automaker \citep{handbook}. Before the origin of these special curves is revealed, it must be understood why curves are important and so difficult to procure digitally.
 Curves have been used in mechanical design for hundreds of years, and for good reason. They give a smooth, attractive form that is not only more inviting to the touch, but also lends itself toward aerodynamics. Curves are perfect for effortlessly passing through fluids such as air and water, as demonstrated in Figure \ref{fig:fluid}.
 
-\begin{figure}[t]
+\begin{figure}[H]
     \begin{center}
     \caption{Fluid is redirected harshly around a cornered object relative to a rounded object.}
     \label{fig:fluid}
@@ -117,30 +104,24 @@ Curves have been used in mechanical design for hundreds of years, and for good r
 \end{center}
 \end{figure}
 
-\newpage
 Unsurprisingly, aerodynamics in air and water accounts for the primary uses of curved surfaces both in ancient Rome and today: boats, planes, and cars. Consider the cars seen on the road today. Even an astute observer would have a hard time finding a perfectly flat surface or hard corner anywhere on the vehicle. Geometric patterns are so popular in the 2010s, yet they haven’t made their way to cars, simply because curves are so energy efficient compared to straight lines and corners that there is no compelling reason to abandon them. 
 
-Curves are also much safer than square edges and corners. Even objects that appear to have square corners often have a small filet to smooth them out and avoid potential accidental cuts or scratches. Curves’ safety properties arise from the same traits as its aerodynamic properties. An angled edge is more able to split open a solid that a curved edge, the reason knives must be sharp to function properly. The concern of safety against hard edges is addressed extensively in the manufacturing space. A wide variety of tools exist purely to reduce sharp edges to a smooth and save curve. Most subtractive machining tools leave a straight edge after a linear cut, as well as small bits of debris still attached to the edge called burrs. Belt sanders, files, deburring tools, countersink bits, and sanding blocks are all different tools used to round or smooth edges after a cut and remove burrs.
-
-When considering a user of an object or product, curves are an easy way to make the user feel at ease and comfortable with the product, as well as keep them safe. 
+Curves are also much safer than square edges and corners. Even objects that appear to have square corners often have a small filet to smooth them out and avoid potential accidental cuts or scratches. Curves’ safety properties arise from the same traits as its aerodynamic properties. An angled edge is more able to split open a solid that a curved edge, the reason knives must be sharp to function properly. The concern of safety against hard edges is addressed extensively in the manufacturing space. A wide variety of tools exist purely to reduce sharp edges to a smooth and safe curve.
 
 Curved edges and surfaces clearly have their benefits. As shown above, there are ways to add curves to a cornered object, but it would be better to include curves in the original design. With manually operated tools, creating a curve is not particularly difficult. The human brain can describe and instruct the hands to use tools to make any shape or surface imaginable that the tool is capable of creating. Handcrafted wood objects can be curved with a chisel and some sanding. In the car manufacturing industry, most auto bodies are modeled at full scale in clay during the design phase. Handcrafting is fine for many purposes, but when the end goal of a design is to mass produce it, at some point the shape of the object must be described by a computer. Manually operated tools are time consuming and labor intensive to make thousands of identical parts for mass production, which is not feasible for large scale manufacturing. Computer numerical control (CNC) tools have solved the mass production issue by allowing tools to be programmed to execute precise cuts perfectly and repeatably. CNC tools require far less attention from a human operator and produce consistent machining, perfect for mass production. The catch is, since the machine is computer controlled, the computer must be able to describe the cuts it is supposed to make, which means they must be described mathematically. Pierre B\'ezier was one of the first engineers to address the need for digital rendering of physical parts, and so began development of the B\'ezier curve for Renault. B\'ezier was not the first, nor the only engineer to work on a mathematical curve algorithm for computers, but his was the widely adopted method. The famous de Casteljau’s algorithm was developed for Citroën, a competing auto company in Paris. His algorithm was kept secret for years after its development in the ‘60s. \citep{handbook}
 
+\section{B\'ezier Curves}
+
 \subsection{Bernstein Polynomials}
-Bernstein polynomials are the expression that represent B\'ezier curves digitally. Before understanding B\'ezier curves mathematically, Bernstein polynomials must be defined. Linear polynomial terms are defined by equation \ref{eq:bern}. 
+Bernstein polynomials are the expression that represent B\'ezier curves digitally. Before understanding B\'ezier curves mathematically, Bernstein polynomials must be defined. Linear polynomial terms are defined by equation \ref{eq:bern}. Coefficients for each of the linear terms are given by the binomial coefficient formula (\ref{eq:berncoeff}). 
 
 \begin{equation}
     \label{eq:bern}
-    B_{n,i}(t) = \binom{n}{i} t^i (1-t)^{n-i} \qquad
-    i=0,...,n
+    B_{n,i}(t) = \binom{n}{i} t^i (1-t)^{n-i} \qquad i=0,...,n
 \end{equation}
-
-
-Coefficients for each of the linear terms are given by the binomial coefficient formula (\ref{eq:berncoeff}). 
-
 \begin{equation}
     \label{eq:berncoeff}
-    \binom{n}{i} = \displaystyle\prod_{i=1}^{n} \frac{n+1-i}{i}
+    \binom{n}{i} = \prod_{i=1}^{n} \frac{n+1-i}{i}
 \end{equation}
 
 Like any function, a Bernstein function of the degree $n$ will have $n+1$ many terms. The graphs below show the value of each individual term from $t=0$ to $t=1$ given different orders of the Bernstein function. 
@@ -166,7 +147,7 @@ Like any function, a Bernstein function of the degree $n$ will have $n+1$ many t
 The summation of the terms in a Bernstein polynomial is always equal to $1$. 
 
 \subsection{Parametric B\'ezier Curves}
-A B\'ezier curve is a parametric summation of Bernstein polynomials, each with coefficients corresponding to the coordinates of control points. These control points are not necessarily intersected by the curve but they do determine its shape.
+A B\'ezier curve is a linear combination of Bernstein polynomials, each with coefficients corresponding to the coordinates of control points. These control points are not necessarily intersected by the curve but they do determine its shape.
 
 \begin{figure}[H]
     \includegraphics[width=15cm]{Figure_1}
@@ -175,7 +156,7 @@ A B\'ezier curve is a parametric summation of Bernstein polynomials, each with c
     \label{fig:demo}
 \end{figure}
 
-Consider Figure \ref{fig:demo}, a curve with four control points: $P_0, P_1, P_2,$ and $P_3$. $P_0$ and $P_3$ are the endpoints of the curve, so they will be intersected by the curve. $P_1$ and $P_2$ will not be intersected by the curve. They do ‘pull’ the curve in their direction. Placing $P_1$ closer to a line between $P_0$ and $P_3$ will reduce the bend towards $P_1$.
+Consider Figure \ref{fig:demo}, a curve with four control points: $P_0, P_1, P_2,$ and $P_3$. $P_0$ and $P_3$ are the endpoints of the curve, so they will be intersected by the curve. $P_1$ and $P_2$ will not be intersected by the curve. They do \lq pull\rq \, the curve in their direction. Placing $P_1$ closer to a line between $P_0$ and $P_3$ will reduce the bend towards $P_1$.
 
 \begin{figure}[H]
     \includegraphics[width=15cm]{Figure_2}
@@ -184,7 +165,7 @@ Consider Figure \ref{fig:demo}, a curve with four control points: $P_0, P_1, P_2
     \label{fig:demo2}
 \end{figure}
 
-The behavior of the curve in relation to its control points comes from the properties of the equation that defines the curve. B\'ezier curves are defined by a parametric equation of Bernstein polynomials. A parametric equation uses a parameter as a determining factor of the result of the function. While traditional graphed functions use an x coordinate to solve for a y coordinate, the parameter is used to define x and y individually. 
+The behavior of the curve in relation to its control points comes from the properties of the equation that defines the curve. B\'ezier curves are defined by a parametric combination of Bernstein polynomials. While traditional graphed functions use an x coordinate to solve for a y coordinate, a parametric defines x and y individually as functions of time, $t$. 
 Take Equation \ref{eq:para1} below. The parametric equation uses the parameter t and two control points, $P_0$ and $P_1$. The equation is solved given t from 0 to 1. At $t=0$, the result is equal to $P_0$, and at $t=1$ it is equal to $P_1$.
 
 \begin{equation}
@@ -197,7 +178,7 @@ In order to graph Equation \ref{eq:para1} as a linear B\'ezier curve (don’t mi
 $$x(t) = 1 + t(2-1)$$
 $$y(t) = 1 + t(3-1)$$
 
-Evaluating $x(t)$ and $y(t)$ from 0 to 1 produces coordinate points on the "curve" shown in Figure \ref{fig:bez2}. 
+Evaluating $x(t)$ and $y(t)$ from 0 to 1 produces coordinate points on the \lq curve\rq \, shown in Figure \ref{fig:bez2}. 
 
 \begin{figure}[H]
     \includegraphics[width=15cm]{Figure_3}
@@ -274,16 +255,14 @@ As can be expected, a 3rd order polynomial has 4 terms and 4 control points.
 
 All of the B\'ezier graphs shown in this section (Figures \ref{fig:demo}, \ref{fig:demo2}, \ref{fig:bez2}, \ref{fig:bez3}, and \ref{fig:bez4}) were generated by the python script in listing \ref{lst:bezier}.
 
+A specific coordinate at any time $t$ can be solved for in one function with a summation of the Berstein terms multiplied by their B\'ezier control point coefficient, as shown in equation \ref{eq:decasteljau}. This formula is known as De Casteljau's algorithm, and is the formula used by computers as they render B\'ezier curves (listing \ref{lst:bezier}).
+
+\begin{equation}
+	\label{eq:decasteljau}
+	F_{n}(t) = \sum_{i=0}^{n} P_{i} B_{n,i}(t)
+\end{equation}
+
 \section{Applications}
-
-\subsection{Computer-Aided Design}
-
-Computer-Aided Design (CAD) was the original intended application for the B\'ezier curve, so it comes by no surprise that the method is used in its graphic rendering engine. SolidWorks uses parametric geometry in its 2D sketch mode, a similar process to the B\'ezier curve. 
-
-%talk about NURBS and their relation with Bezier and Casteljau
-
-NURBS is the standard method for representing 3D objects and surfaces in CAD applications, including SolidWorks, Autodesk Fusion, and Autodesk Inventor. 
-%more
 
 \subsection{Fonts}
 
@@ -323,7 +302,7 @@ Vector design programs are a necessary tool for the creation of any digital grap
 The Scalable Vector Graphics (SVG) file format is the common vector file format which can be read by mainstream vector software packages. It is written in eXtensible Markup Language (XML), a self-descriptive markup language meant to be legible for computers as well as humans. The SVG is an open standard format by the World Wide Web Consortium, used for graphics. SVGs are compatible with vector based graphic design programs, and can be integrated inline with HTML. They are perfect for web use because the files are small, simple text files, but have the benefits of being infinitely scalable via the properties of vectors, hence the name Scalable Vector Graphic. For web use, this is ideal, since there are a wide range of screen resolutions to render web content on, and keeping large raster images on a web server can quickly become slow and cumbersome for a client that is loading the site. Of course, for a standard, vector based file, B\'ezier curves are the perfect way to take care of curves, shapes and fonts rendered in SVG files.
 
 \section{Summary}
-The intuitive nature of B\'ezier curves makes them perfect for artists and designers, but also the computational efficiency of Bernstein polynomials reduces load on the GPU of any machine that is rendering vector graphics. The perfect match of user and system benefits has resulted in widespread industry adoption in vector rendering and vector file formats. In today's climate of popular geometric and vector graphic design, as well as the ongoing use of print and digital text, B\'ezier curve technology is integral infrastructure for artists, designers, and readers around the world. 
+The intuitive nature of B\'ezier curves makes them perfect for artists and designers, but also the computational efficiency of Bernstein polynomials reduces load on the GPU of any machine that is rendering vector graphics. The perfect match of user and system benefits has resulted in widespread industry adoption in vector rendering and vector file formats. In today's climate of popular geometric and vector graphic design, as well as the ongoing use of print and digital text, B\'ezier curve technology is integral infrastructure for artists, designers, and readers around the world. %add more here
 
 \newpage
 \bibliography{tynan-ee}
